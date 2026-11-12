@@ -1,4 +1,4 @@
-# Yeast_acetate: models and data for acetate exchange in yeast
+# Investigating acetate overflow in Saccharomyces cerevisiae
 
 This repository contains the COPASI models and experimental concentration time courses used to quantify acetate and ethanol fluxes in *Saccharomyces cerevisiae* in the manuscript:
 
