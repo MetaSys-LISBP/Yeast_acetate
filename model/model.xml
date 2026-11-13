@@ -1,0 +1,1219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created by COPASI version 4.39 (Build 272) on 2026-11-13 10:35 with libSBML version 5.19.4. -->
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model metaid="COPASI0" id="Yeast_model___Hexose_Acetate_metabolism" name="Yeast model - Hexose-Acetate metabolism">
+    <notes>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+        <pre>Model of overflow metabolism</pre>
+      </body>
+    </notes>
+    <annotation>
+      <copasi:COPASI xmlns:copasi="http://www.copasi.org/static/sbml">
+        <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+          <rdf:Description rdf:about="#COPASI0">
+            <dcterms:created>
+              <rdf:Description>
+                <dcterms:W3CDTF>2019-09-24T11:27:30Z</dcterms:W3CDTF>
+              </rdf:Description>
+            </dcterms:created>
+          </rdf:Description>
+        </rdf:RDF>
+      </copasi:COPASI>
+    </annotation>
+    <listOfFunctionDefinitions>
+      <functionDefinition id="Constant_flux__irreversible" name="Constant flux (irreversible)">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <lambda>
+            <bvar>
+              <ci> v </ci>
+            </bvar>
+            <ci> v </ci>
+          </lambda>
+        </math>
+      </functionDefinition>
+      <functionDefinition metaid="COPASI20" id="function_trp" name="function_trp">
+        <annotation>
+          <copasi:COPASI xmlns:copasi="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI20">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2020-02-25T11:27:00Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </copasi:COPASI>
+        </annotation>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <lambda>
+            <bvar>
+              <ci> Sx </ci>
+            </bvar>
+            <bvar>
+              <ci> S </ci>
+            </bvar>
+            <bvar>
+              <ci> v </ci>
+            </bvar>
+            <apply>
+              <times/>
+              <apply>
+                <divide/>
+                <ci> Sx </ci>
+                <ci> S </ci>
+              </apply>
+              <ci> v </ci>
+            </apply>
+          </lambda>
+        </math>
+      </functionDefinition>
+      <functionDefinition metaid="COPASI21" id="growth_0" name="growth">
+        <annotation>
+          <copasi:COPASI xmlns:copasi="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI21">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2019-09-24T12:10:06Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </copasi:COPASI>
+        </annotation>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <lambda>
+            <bvar>
+              <ci> X </ci>
+            </bvar>
+            <bvar>
+              <ci> mu </ci>
+            </bvar>
+            <apply>
+              <times/>
+              <ci> X </ci>
+              <ci> mu </ci>
+            </apply>
+          </lambda>
+        </math>
+      </functionDefinition>
+    </listOfFunctionDefinitions>
+    <listOfUnitDefinitions>
+      <unitDefinition id="length" name="length">
+        <listOfUnits>
+          <unit kind="metre" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="area" name="area">
+        <listOfUnits>
+          <unit kind="metre" exponent="2" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="volume" name="volume">
+        <listOfUnits>
+          <unit kind="litre" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="time" name="time">
+        <listOfUnits>
+          <unit kind="second" exponent="1" scale="0" multiplier="3600"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="substance" name="substance">
+        <listOfUnits>
+          <unit kind="mole" exponent="1" scale="-3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment metaid="COPASI1" id="cell" name="cell" spatialDimensions="3" size="1" constant="true">
+        <annotation>
+          <copasi:COPASI xmlns:copasi="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI1">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2019-09-24T11:27:54Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </copasi:COPASI>
+        </annotation>
+      </compartment>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species metaid="COPASI2" id="Glc" name="Glc" compartment="cell" initialConcentration="51.9452269760651" boundaryCondition="true" constant="false">
+        <annotation>
+          <copasi:COPASI xmlns:copasi="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI2">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2019-09-24T11:27:54Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </copasi:COPASI>
+        </annotation>
+      </species>
+      <species metaid="COPASI3" id="AcCoA_0" name="AcCoA_0" compartment="cell" initialConcentration="0.01" boundaryCondition="false" constant="false">
+        <annotation>
+          <copasi:COPASI xmlns:copasi="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI3">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2019-09-24T11:47:36Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </copasi:COPASI>
+        </annotation>
+      </species>
+      <species metaid="COPASI4" id="AcCoA_1" name="AcCoA_1" compartment="cell" initialConcentration="0.01" boundaryCondition="false" constant="false">
+        <annotation>
+          <copasi:COPASI xmlns:copasi="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI4">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2019-09-24T11:47:47Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </copasi:COPASI>
+        </annotation>
+      </species>
+      <species metaid="COPASI5" id="X" name="X" compartment="cell" initialConcentration="0.332146861120127" boundaryCondition="false" constant="false">
+        <annotation>
+          <copasi:COPASI xmlns:copasi="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI5">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2019-09-24T12:08:24Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </copasi:COPASI>
+        </annotation>
+      </species>
+      <species metaid="COPASI6" id="AcCoA" name="AcCoA" compartment="cell" initialConcentration="0.02" boundaryCondition="true" constant="false">
+        <annotation>
+          <copasi:COPASI xmlns:copasi="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI6">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2019-09-24T14:21:04Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </copasi:COPASI>
+        </annotation>
+      </species>
+      <species metaid="COPASI7" id="Ace_0" name="Ace_0" compartment="cell" initialConcentration="0.732043426237911" boundaryCondition="true" constant="false">
+        <annotation>
+          <copasi:COPASI xmlns:copasi="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI7">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2020-02-26T10:12:37Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </copasi:COPASI>
+        </annotation>
+      </species>
+      <species metaid="COPASI8" id="Ace_1" name="Ace_1" compartment="cell" initialConcentration="5.5569247979749" boundaryCondition="true" constant="false">
+        <annotation>
+          <copasi:COPASI xmlns:copasi="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI8">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2020-02-26T10:12:50Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </copasi:COPASI>
+        </annotation>
+      </species>
+      <species metaid="COPASI9" id="Ace" name="Ace" compartment="cell" initialConcentration="6.28896822421281" boundaryCondition="true" constant="false">
+        <annotation>
+          <copasi:COPASI xmlns:copasi="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI9">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2020-02-26T10:12:59Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </copasi:COPASI>
+        </annotation>
+      </species>
+      <species id="EtOH_0" name="EtOH_0" compartment="cell" initialConcentration="16.4212529397586" boundaryCondition="true" constant="false"/>
+      <species id="EtOH_1" name="EtOH_1" compartment="cell" initialConcentration="0.00025904922763428" boundaryCondition="true" constant="false"/>
+      <species id="EtOH" name="EtOH" compartment="cell" initialConcentration="16.4215119889862" boundaryCondition="true" constant="false"/>
+      <species id="Pyr_0" name="Pyr_0" compartment="cell" initialConcentration="0.01" boundaryCondition="false" constant="false"/>
+      <species id="Pyr_1" name="Pyr_1" compartment="cell" initialConcentration="0.01" boundaryCondition="false" constant="false"/>
+      <species id="Pyr" name="Pyr" compartment="cell" initialConcentration="0.02" boundaryCondition="true" constant="false"/>
+      <species id="Aad_0" name="Aad_0" compartment="cell" initialConcentration="0.01" boundaryCondition="false" constant="false"/>
+      <species id="Aad_1" name="Aad_1" compartment="cell" initialConcentration="0.01" boundaryCondition="false" constant="false"/>
+      <species id="Aad" name="Aad" compartment="cell" initialConcentration="0.02" boundaryCondition="true" constant="false"/>
+      <species id="GA3P_0" name="GA3P_0" compartment="cell" initialConcentration="0.01" boundaryCondition="false" constant="false"/>
+      <species id="Gly_0" name="Gly_0" compartment="cell" initialConcentration="0.303735365899961" boundaryCondition="true" constant="false"/>
+      <species id="GA3P" name="GA3P" compartment="cell" initialConcentration="0.01" boundaryCondition="true" constant="false"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter metaid="COPASI10" id="v_sink_AcCoA" name="v_sink_AcCoA" value="1.26370040983322" constant="false">
+        <annotation>
+          <copasi:COPASI xmlns:copasi="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI10">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2019-09-24T12:08:35Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </copasi:COPASI>
+        </annotation>
+      </parameter>
+      <parameter metaid="COPASI11" id="enr_ace" name="enr_ace" value="0.883598803469938" constant="false">
+        <annotation>
+          <copasi:COPASI xmlns:copasi="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI11">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2019-09-24T12:53:57Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </copasi:COPASI>
+        </annotation>
+      </parameter>
+      <parameter metaid="COPASI12" id="growth_rate" name="growth_rate" value="0.274902908336036" constant="true">
+        <annotation>
+          <copasi:COPASI xmlns:copasi="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI12">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2020-02-26T13:37:18Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </copasi:COPASI>
+        </annotation>
+      </parameter>
+      <parameter metaid="COPASI13" id="v_Ace_net" name="v_Ace_net" value="0.196457731078069" constant="false">
+        <annotation>
+          <copasi:COPASI xmlns:copasi="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI13">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2020-02-26T14:22:55Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </copasi:COPASI>
+        </annotation>
+      </parameter>
+      <parameter id="v_acs_f" name="v_acs_f" value="1.26370040983322" constant="true"/>
+      <parameter id="v_glc_uptake" name="v_glc_uptake" value="10.9521533180036" constant="true"/>
+      <parameter id="v_ald_f" name="v_ald_f" value="1.46015814091129" constant="true"/>
+      <parameter id="v_adh_f" name="v_adh_f" value="18.2531737158688" constant="true"/>
+      <parameter id="v_adh_r" name="v_adh_r" value="0.076451343385077" constant="true"/>
+      <parameter id="v_pdc_f" name="v_pdc_f" value="19.636880513395" constant="false"/>
+      <parameter id="v_sink_Pyr" name="v_sink_Pyr" value="1.77447397633119" constant="false"/>
+      <parameter id="v_EtOH_net" name="v_EtOH_net" value="18.1767223724837" constant="false"/>
+      <parameter id="enr_etoh" name="enr_etoh" value="1.57749924494177e-05" constant="false"/>
+      <parameter id="v_lower_glyc" name="v_lower_glyc" value="21.4113544897262" constant="false"/>
+      <parameter id="v_gly_out" name="v_gly_out" value="0.164387546740957" constant="true"/>
+      <parameter id="v_EtOH_evap" name="v_EtOH_evap" value="0.0927945665568229" constant="false"/>
+      <parameter id="k_EtOH_evap" name="k_EtOH_evap" value="0.005650793095" constant="true"/>
+      <parameter id="ModelValue_16" name="Initial for k_EtOH_evap" value="0.005650793095">
+        <annotation>
+          <initialValue xmlns="http://copasi.org/initialValue" parent="k_EtOH_evap" type="InitialValue"/>
+        </annotation>
+      </parameter>
+      <parameter id="ModelValue_4" name="Initial for v_acs_f" value="1.26370040983322">
+        <annotation>
+          <initialValue xmlns="http://copasi.org/initialValue" parent="v_acs_f" type="InitialValue"/>
+        </annotation>
+      </parameter>
+      <parameter id="ModelValue_7" name="Initial for v_adh_f" value="18.2531737158688">
+        <annotation>
+          <initialValue xmlns="http://copasi.org/initialValue" parent="v_adh_f" type="InitialValue"/>
+        </annotation>
+      </parameter>
+      <parameter id="ModelValue_8" name="Initial for v_adh_r" value="0.076451343385077">
+        <annotation>
+          <initialValue xmlns="http://copasi.org/initialValue" parent="v_adh_r" type="InitialValue"/>
+        </annotation>
+      </parameter>
+      <parameter id="ModelValue_6" name="Initial for v_ald_f" value="1.46015814091129">
+        <annotation>
+          <initialValue xmlns="http://copasi.org/initialValue" parent="v_ald_f" type="InitialValue"/>
+        </annotation>
+      </parameter>
+      <parameter id="ModelValue_5" name="Initial for v_glc_uptake" value="10.9521533180036">
+        <annotation>
+          <initialValue xmlns="http://copasi.org/initialValue" parent="v_glc_uptake" type="InitialValue"/>
+        </annotation>
+      </parameter>
+      <parameter id="ModelValue_14" name="Initial for v_gly_out" value="0.164387546740957">
+        <annotation>
+          <initialValue xmlns="http://copasi.org/initialValue" parent="v_gly_out" type="InitialValue"/>
+        </annotation>
+      </parameter>
+      <parameter id="ModelValue_13" name="Initial for v_lower_glyc" value="21.4113544897262">
+        <annotation>
+          <initialValue xmlns="http://copasi.org/initialValue" parent="v_lower_glyc" type="InitialValue"/>
+        </annotation>
+      </parameter>
+      <parameter id="ModelValue_9" name="Initial for v_pdc_f" value="19.636880513395">
+        <annotation>
+          <initialValue xmlns="http://copasi.org/initialValue" parent="v_pdc_f" type="InitialValue"/>
+        </annotation>
+      </parameter>
+    </listOfParameters>
+    <listOfInitialAssignments>
+      <initialAssignment symbol="ModelValue_16">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> k_EtOH_evap </ci>
+        </math>
+      </initialAssignment>
+      <initialAssignment symbol="ModelValue_4">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> v_acs_f </ci>
+        </math>
+      </initialAssignment>
+      <initialAssignment symbol="ModelValue_7">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> v_adh_f </ci>
+        </math>
+      </initialAssignment>
+      <initialAssignment symbol="ModelValue_8">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> v_adh_r </ci>
+        </math>
+      </initialAssignment>
+      <initialAssignment symbol="ModelValue_6">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> v_ald_f </ci>
+        </math>
+      </initialAssignment>
+      <initialAssignment symbol="ModelValue_5">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> v_glc_uptake </ci>
+        </math>
+      </initialAssignment>
+      <initialAssignment symbol="ModelValue_14">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> v_gly_out </ci>
+        </math>
+      </initialAssignment>
+      <initialAssignment symbol="ModelValue_13">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> v_lower_glyc </ci>
+        </math>
+      </initialAssignment>
+      <initialAssignment symbol="ModelValue_9">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> v_pdc_f </ci>
+        </math>
+      </initialAssignment>
+    </listOfInitialAssignments>
+    <listOfRules>
+      <assignmentRule variable="v_Ace_net">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <ci> ModelValue_6 </ci>
+            <ci> ModelValue_4 </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="v_sink_AcCoA">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> ModelValue_4 </ci>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="AcCoA">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <ci> AcCoA_0 </ci>
+            <ci> AcCoA_1 </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="EtOH">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <ci> EtOH_0 </ci>
+            <ci> EtOH_1 </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="Pyr">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <ci> Pyr_0 </ci>
+            <ci> Pyr_1 </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="Ace">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <ci> Ace_0 </ci>
+            <ci> Ace_1 </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="enr_ace">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <ci> Ace_1 </ci>
+            <ci> Ace </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="enr_etoh">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <ci> EtOH_1 </ci>
+            <ci> EtOH </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="v_pdc_f">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <apply>
+              <minus/>
+              <ci> ModelValue_7 </ci>
+              <ci> ModelValue_8 </ci>
+            </apply>
+            <ci> ModelValue_6 </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="v_EtOH_net">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <ci> ModelValue_7 </ci>
+            <ci> ModelValue_8 </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="v_EtOH_evap">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> ModelValue_16 </ci>
+            <ci> EtOH </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="v_lower_glyc">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <apply>
+              <times/>
+              <ci> ModelValue_5 </ci>
+              <cn> 1.97 </cn>
+            </apply>
+            <ci> ModelValue_14 </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="v_sink_Pyr">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <ci> ModelValue_13 </ci>
+            <ci> ModelValue_9 </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="Aad">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <ci> Aad_0 </ci>
+            <ci> Aad_1 </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="GA3P">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> GA3P_0 </ci>
+        </math>
+      </assignmentRule>
+      <rateRule variable="Glc">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <apply>
+              <minus/>
+              <ci> ModelValue_5 </ci>
+            </apply>
+            <ci> X </ci>
+          </apply>
+        </math>
+      </rateRule>
+      <rateRule variable="Ace_0">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <apply>
+              <minus/>
+              <ci> ald_f0 </ci>
+              <ci> acs_f0 </ci>
+            </apply>
+            <ci> X </ci>
+          </apply>
+        </math>
+      </rateRule>
+      <rateRule variable="Ace_1">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <apply>
+              <minus/>
+              <ci> ald_f1 </ci>
+              <ci> acs_f1 </ci>
+            </apply>
+            <ci> X </ci>
+          </apply>
+        </math>
+      </rateRule>
+      <rateRule variable="EtOH_0">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <apply>
+              <times/>
+              <apply>
+                <minus/>
+                <ci> adh_f0 </ci>
+                <ci> adh_r0 </ci>
+              </apply>
+              <ci> X </ci>
+            </apply>
+            <ci> etoh_evap_0 </ci>
+          </apply>
+        </math>
+      </rateRule>
+      <rateRule variable="EtOH_1">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <apply>
+              <times/>
+              <apply>
+                <minus/>
+                <ci> adh_f1 </ci>
+                <ci> adh_r1 </ci>
+              </apply>
+              <ci> X </ci>
+            </apply>
+            <ci> etoh_evap_1 </ci>
+          </apply>
+        </math>
+      </rateRule>
+      <rateRule variable="Gly_0">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> gly_out </ci>
+            <ci> X </ci>
+          </apply>
+        </math>
+      </rateRule>
+    </listOfRules>
+    <listOfReactions>
+      <reaction metaid="COPASI14" id="upper_glycolysis" name="upper_glycolysis" reversible="false">
+        <annotation>
+          <copasi:COPASI xmlns:copasi="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI14">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2019-09-24T11:27:37Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </copasi:COPASI>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="Glc" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="GA3P_0" stoichiometry="1.97"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> cell </ci>
+              <apply>
+                <ci> Constant_flux__irreversible </ci>
+                <ci> v_glc_uptake </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction metaid="COPASI15" id="sink_AcCoA0" name="sink_AcCoA0" reversible="false">
+        <annotation>
+          <copasi:COPASI xmlns:copasi="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI15">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2019-09-24T11:28:46Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </copasi:COPASI>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="AcCoA_0" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfModifiers>
+          <modifierSpeciesReference species="AcCoA"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> cell </ci>
+              <apply>
+                <ci> function_trp </ci>
+                <ci> AcCoA_0 </ci>
+                <ci> AcCoA </ci>
+                <ci> v_sink_AcCoA </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction metaid="COPASI16" id="sink_AcCoA1" name="sink_AcCoA1" reversible="false">
+        <annotation>
+          <copasi:COPASI xmlns:copasi="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI16">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2019-09-24T11:28:46Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </copasi:COPASI>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="AcCoA_1" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfModifiers>
+          <modifierSpeciesReference species="AcCoA"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> cell </ci>
+              <apply>
+                <ci> function_trp </ci>
+                <ci> AcCoA_1 </ci>
+                <ci> AcCoA </ci>
+                <ci> v_sink_AcCoA </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction metaid="COPASI17" id="growth" name="growth" reversible="false">
+        <annotation>
+          <copasi:COPASI xmlns:copasi="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI17">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2019-09-24T12:07:54Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </copasi:COPASI>
+        </annotation>
+        <listOfProducts>
+          <speciesReference species="X" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="X"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> cell </ci>
+              <apply>
+                <ci> growth_0 </ci>
+                <ci> X </ci>
+                <ci> growth_rate </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction metaid="COPASI18" id="acs_f0" name="acs_f0" reversible="false">
+        <annotation>
+          <copasi:COPASI xmlns:copasi="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI18">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2020-02-26T10:33:46Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </copasi:COPASI>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="Ace_0" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="AcCoA_0" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="Ace"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> cell </ci>
+              <apply>
+                <ci> function_trp </ci>
+                <ci> Ace_0 </ci>
+                <ci> Ace </ci>
+                <ci> v_acs_f </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction metaid="COPASI19" id="acs_f1" name="acs_f1" reversible="false">
+        <annotation>
+          <copasi:COPASI xmlns:copasi="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI19">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2020-02-26T10:33:46Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </copasi:COPASI>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="Ace_1" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="AcCoA_1" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="Ace"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> cell </ci>
+              <apply>
+                <ci> function_trp </ci>
+                <ci> Ace_1 </ci>
+                <ci> Ace </ci>
+                <ci> v_acs_f </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="ald_f0" name="ald_f0" reversible="false">
+        <listOfReactants>
+          <speciesReference species="Aad_0" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Ace_0" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="Aad"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> cell </ci>
+              <apply>
+                <ci> function_trp </ci>
+                <ci> Aad_0 </ci>
+                <ci> Aad </ci>
+                <ci> v_ald_f </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="ald_f1" name="ald_f1" reversible="false">
+        <listOfReactants>
+          <speciesReference species="Aad_1" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Ace_1" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="Aad"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> cell </ci>
+              <apply>
+                <ci> function_trp </ci>
+                <ci> Aad_1 </ci>
+                <ci> Aad </ci>
+                <ci> v_ald_f </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="adh_f0" name="adh_f0" reversible="false">
+        <listOfReactants>
+          <speciesReference species="Aad_0" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EtOH_0" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="Aad"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> cell </ci>
+              <apply>
+                <ci> function_trp </ci>
+                <ci> Aad_0 </ci>
+                <ci> Aad </ci>
+                <ci> v_adh_f </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="adh_f1" name="adh_f1" reversible="false">
+        <listOfReactants>
+          <speciesReference species="Aad_1" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EtOH_1" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="Aad"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> cell </ci>
+              <apply>
+                <ci> function_trp </ci>
+                <ci> Aad_1 </ci>
+                <ci> Aad </ci>
+                <ci> v_adh_f </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="adh_r0" name="adh_r0" reversible="false">
+        <listOfReactants>
+          <speciesReference species="EtOH_0" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Aad_0" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="EtOH"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> cell </ci>
+              <apply>
+                <ci> function_trp </ci>
+                <ci> EtOH_0 </ci>
+                <ci> EtOH </ci>
+                <ci> v_adh_r </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="adh_r1" name="adh_r1" reversible="false">
+        <listOfReactants>
+          <speciesReference species="EtOH_1" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Aad_1" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="EtOH"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> cell </ci>
+              <apply>
+                <ci> function_trp </ci>
+                <ci> EtOH_1 </ci>
+                <ci> EtOH </ci>
+                <ci> v_adh_r </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="pdc_f1" name="pdc_f1" reversible="false">
+        <listOfReactants>
+          <speciesReference species="Pyr_1" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Aad_1" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="Pyr"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> cell </ci>
+              <apply>
+                <ci> function_trp </ci>
+                <ci> Pyr_1 </ci>
+                <ci> Pyr </ci>
+                <ci> v_pdc_f </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="pdc_f0" name="pdc_f0" reversible="false">
+        <listOfReactants>
+          <speciesReference species="Pyr_0" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Aad_0" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="Pyr"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> cell </ci>
+              <apply>
+                <ci> function_trp </ci>
+                <ci> Pyr_0 </ci>
+                <ci> Pyr </ci>
+                <ci> v_pdc_f </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="sink_Pyr0" name="sink_Pyr0" reversible="false">
+        <listOfReactants>
+          <speciesReference species="Pyr_0" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfModifiers>
+          <modifierSpeciesReference species="Pyr"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> cell </ci>
+              <apply>
+                <ci> function_trp </ci>
+                <ci> Pyr_0 </ci>
+                <ci> Pyr </ci>
+                <ci> v_sink_Pyr </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="sink_Pyr1" name="sink_Pyr1" reversible="false">
+        <listOfReactants>
+          <speciesReference species="Pyr_1" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfModifiers>
+          <modifierSpeciesReference species="Pyr"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> cell </ci>
+              <apply>
+                <ci> function_trp </ci>
+                <ci> Pyr_1 </ci>
+                <ci> Pyr </ci>
+                <ci> v_sink_Pyr </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="lower_glycolysis" name="lower_glycolysis" reversible="false">
+        <listOfReactants>
+          <speciesReference species="GA3P_0" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Pyr_0" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="GA3P"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> cell </ci>
+              <apply>
+                <ci> function_trp </ci>
+                <ci> GA3P_0 </ci>
+                <ci> GA3P </ci>
+                <ci> v_lower_glyc </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="gly_out" name="gly_out" reversible="false">
+        <listOfReactants>
+          <speciesReference species="GA3P_0" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Gly_0" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="GA3P"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> cell </ci>
+              <apply>
+                <ci> function_trp </ci>
+                <ci> GA3P_0 </ci>
+                <ci> GA3P </ci>
+                <ci> v_gly_out </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="etoh_evap_0" name="etoh_evap_0" reversible="false">
+        <listOfReactants>
+          <speciesReference species="EtOH_0" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfModifiers>
+          <modifierSpeciesReference species="EtOH"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> cell </ci>
+              <apply>
+                <ci> function_trp </ci>
+                <ci> EtOH_0 </ci>
+                <ci> EtOH </ci>
+                <ci> v_EtOH_evap </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="etoh_evap_1" name="etoh_evap_1" reversible="false">
+        <listOfReactants>
+          <speciesReference species="EtOH_1" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfModifiers>
+          <modifierSpeciesReference species="EtOH"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> cell </ci>
+              <apply>
+                <ci> function_trp </ci>
+                <ci> EtOH_1 </ci>
+                <ci> EtOH </ci>
+                <ci> v_EtOH_evap </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>
